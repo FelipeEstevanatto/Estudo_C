@@ -1,42 +1,45 @@
-//script base de um menu de setas em C++ que busca ser o mais explicado possível
+//script base de um menu de setas em C++ que busca ser o mais explicado possï¿½vel
+
+
+//AINDA NÃ•A ESTÃ COMPLETO - QUEBRADO ATUALMENTE, CONSTRUINDO A BASE APENAS
 
 #include <stdio.h> 			 //biblioteca base
-#include <conio.h>			//frufrus para o código
-#include <windows.h>		//definições da função gotoxy
+#include <conio.h>			//frufrus para o cï¿½digo
+#include <windows.h>		//definiï¿½ï¿½es da funï¿½ï¿½o gotoxy
 
 #define Linicial 6   	//Definir valor da linha inicial do menu
 #define Lfinal 12		//definir o valor da linha final
 #define Coluna 10		//definir a coluna em que a seta vai se movimentar ( valor Y )
 
-//definição do tamanho da tela para o uso do gotoxy
+//definiï¿½ï¿½o do tamanho da tela para o uso do gotoxy
 text_info vActual = {0, 0, 79, 24, WHITE, WHITE, C80, 160, 38, 1, 1}; // Define os limites para linha (35) e coluna (80)
 
-//cabeçalho das funções conio.c
+//cabeï¿½alho das funï¿½ï¿½es conio.c
 void gotoxy(int x, int y);
 void textbackground(int newcolor);
 
 int menu(int ini, int fim, int col)
 {
-	int aux = ini; // Recebe posição da seta
+	int aux = ini; // Recebe posiï¿½ï¿½o da seta
 	int entrada; // Armazena entrada do teclado
-	int espaco = 2; //espaçamento entre as opções do menu, nesse caso é 2
+	int espaco = 2; //espaï¿½amento entre as opï¿½ï¿½es do menu, nesse caso ï¿½ 2
 	
 	do
 	{
-		gotoxy(col,aux); printf("%c", 62);	// o char da setinha (62 = >) é impresso sempre no começo do loop
+		gotoxy(col,aux); printf("%c", 62);	// o char da setinha (62 = >) ï¿½ impresso sempre no comeï¿½o do loop
 			
 		//fflush(stdin); aqui caso se tenha usado scanf antes
 		
 		entrada = getch(); 
 		
-		gotoxy(col,aux); printf(" ");		//Limpa o local inicial onde a setinha estava com um espaço vazio
+		gotoxy(col,aux); printf(" ");		//Limpa o local inicial onde a setinha estava com um espaï¿½o vazio
 		
 		switch(entrada) //esse switch analisa qual tecla foi digitada do menu de setinha (cima ou baixo)
 		{
 			case 72: // Seta para cima
 				aux -= espaco; 	
 				
-				if(aux < ini) aux  = fim;  //se já estiver no topo das opções e clicar para cima novamente a seta desce para a ultima opção dando uma impressão de loop de opções
+				if(aux < ini) aux  = fim;  //se jï¿½ estiver no topo das opï¿½ï¿½es e clicar para cima novamente a seta desce para a ultima opï¿½ï¿½o dando uma impressï¿½o de loop de opï¿½ï¿½es
 
 				gotoxy(col,aux); printf("%c", 62); //printa a setinha no local novo escolhido
 				break;
@@ -50,8 +53,8 @@ int menu(int ini, int fim, int col)
 				break;	
 				
 			case 13: //quando apertar enter manda o resultado escolhido
-				return (aux - ini)/espaco; // Retorna o valor da opção seleciona => inicia em 0
-										//Valor atual da seta - valor inicial/espaçamento entre opções
+				return (aux - ini)/espaco; // Retorna o valor da opï¿½ï¿½o seleciona => inicia em 0
+										//Valor atual da seta - valor inicial/espaï¿½amento entre opï¿½ï¿½es
 				break;	
 		}
 		
@@ -61,18 +64,18 @@ int menu(int ini, int fim, int col)
 main()
 {
 	
-	textbackground(8);		system("cls");  //só para trocar a cor de fundo do terminal
+	textbackground(8);		system("cls");  //sï¿½ para trocar a cor de fundo do terminal
 	
 	gotoxy(8,4);	printf("Script base para um menu de navegar com setas");
 	
-	gotoxy(12,6);	printf("Resultado 1"); 	//o Y da primeira opção deve ser a definição da Linicial
+	gotoxy(12,6);	printf("Resultado 1"); 	//o Y da primeira opï¿½ï¿½o deve ser a definiï¿½ï¿½o da Linicial
 	gotoxy(12,8);	printf("Resultado 2");
 	gotoxy(12,10);	printf("Resultado 3");
-	gotoxy(12,12);	printf("Resultado 4");	//o Y da ultima opção deve ser a definição da Lfinal
+	gotoxy(12,12);	printf("Resultado 4");	//o Y da ultima opï¿½ï¿½o deve ser a definiï¿½ï¿½o da Lfinal
 
-	//=======================Chamada da função de menu e apresentação do resultado=============================================
+	//=======================Chamada da funï¿½ï¿½o de menu e apresentaï¿½ï¿½o do resultado=============================================
 	
-	int resposta = menu(Linicial,Lfinal,Coluna);  //é gerada uma int que armazenará o return da função de menu
+	int resposta = menu(Linicial,Lfinal,Coluna);  //ï¿½ gerada uma int que armazenarï¿½ o return da funï¿½ï¿½o de menu
 	switch(resposta)							  //que depois por um switch vai ler esse resultado e apresentar o que deve
 		{
 		case 0:
@@ -94,7 +97,7 @@ main()
 		};	
 }
 	
-	//===============================Funções conio.c=========================================================
+	//===============================Funï¿½ï¿½es conio.c=========================================================
 
 void gotoxy(int x, int y)	// Move o cursor para a coluna e linha desejada
 {
